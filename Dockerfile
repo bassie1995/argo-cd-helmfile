@@ -48,8 +48,10 @@ RUN groupadd -g $ARGOCD_USER_ID argocd && \
 # https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
 #
 #ARG INSTALL_AZURE_TOOLS
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    ca-certificates curl apt-transport-https lsb-release gnupg \
+    && \
+    curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 
 # gcloud cli
