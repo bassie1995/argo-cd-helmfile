@@ -52,10 +52,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     ca-certificates curl apt-transport-https lsb-release gnupg \
     && \
     mkdir -p /etc/apt/keyrings && \
-    curl -fsLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /usr/share/keyrings/packages.microsoft.gpg && \
-    chmod go+r /usr/share/keyrings/packages.microsoft.gpg && \
+    curl -fsLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /usr/share/keyrings/microsoft.gpg && \
     AZ_REPO=$(lsb_release -cs) && \
-    echo "deb [arch=`dpkg --print-architecture` signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | tee /etc/apt/sources.list.d/azure-cli.list && \
+    echo $AZ_REPO && \
+    echo "deb [arch=`dpkg --print-architecture` signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | tee /etc/apt/sources.list.d/azure-cli.list && \
     apt-get update && apt-get install --no-install-recommends -y \
     azure-cli && \
     apt-get clean && \
