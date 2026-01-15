@@ -54,7 +54,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     mkdir -p /etc/apt/keyrings && \
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /usr/share/keyrings/microsoft.gpg && \
     AZ_REPO=$(lsb_release -cs) && \
-    echo $AZ_REPO && \
     echo "deb [arch=`dpkg --print-architecture` signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | tee /etc/apt/sources.list.d/azure-cli.list && \
     apt-get update && apt-get install --no-install-recommends -y \
     azure-cli && \

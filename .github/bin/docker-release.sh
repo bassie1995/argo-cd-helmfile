@@ -1,7 +1,6 @@
 #!/bin/bash
 
 echo "$DOCKER_PASSWORD" | docker login         -u "$DOCKER_USERNAME" --password-stdin
-echo "$GHCR_PASSWORD"   | docker login ghcr.io -u "$GHCR_USERNAME"   --password-stdin
 
 export DOCKER_ORG="datbassieatwork"
 export DOCKER_PROJECT="argo-cd-helmfile"
