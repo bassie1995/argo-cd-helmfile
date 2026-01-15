@@ -77,25 +77,25 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # binary versions
 # https://github.com/FiloSottile/age/releases
-ARG AGE_VERSION="v1.2.0"
+ARG AGE_VERSION="v1.3.1"
 # install via apt for now
 #ARG JQ_VERSION="1.6"
 ARG HELM2_VERSION="v2.17.0"
 # https://github.com/helm/helm/releases
-ARG HELM3_VERSION="v3.17.3"
+ARG HELM3_VERSION="v3.19.5"
 # https://github.com/helmfile/helmfile/releases
-ARG HELMFILE_VERSION="0.171.0"
+ARG HELMFILE_VERSION="1.2.3"
 # https://github.com/kubernetes-sigs/kustomize/releases
-ARG KUSTOMIZE5_VERSION="5.6.0"
+ARG KUSTOMIZE5_VERSION="5.8.0"
 # https://github.com/getsops/sops/releases
-ARG SOPS_VERSION="v3.10.2"
+ARG SOPS_VERSION="v3.11.0"
 # https://github.com/mikefarah/yq/releases
-ARG YQ_VERSION="v4.45.4"
+ARG YQ_VERSION="v4.50.1"
 
 # relevant for kubectl if installed
-ARG KUBESEAL_VERSION="0.30.0"
+ARG KUBESEAL_VERSION="0.34.0"
 # curl -v -L 'https://dl.k8s.io/release/stable.txt'
-ARG KUBECTL_VERSION="v1.32.5"
+ARG KUBECTL_VERSION="v1.33.7"
 # https://github.com/kubernetes-sigs/krew/releases/
 ARG KREW_VERSION="v0.4.5"
 
@@ -141,11 +141,11 @@ ENV PATH="${KREW_ROOT}/bin:$PATH"
 
 # plugin versions
 # https://github.com/databus23/helm-diff/releases
-ARG HELM_DIFF_VERSION="3.12.2"
+ARG HELM_DIFF_VERSION="3.14.1"
 # https://github.com/aslafy-z/helm-git/releases
-ARG HELM_GIT_VERSION="1.4.0"
+ARG HELM_GIT_VERSION="1.5.1"
 # https://github.com/jkroepke/helm-secrets/releases
-ARG HELM_SECRETS_VERSION="4.6.5"
+ARG HELM_SECRETS_VERSION="4.7.5"
 
 RUN \
   helm-v3 plugin install https://github.com/databus23/helm-diff   --version ${HELM_DIFF_VERSION} && \
